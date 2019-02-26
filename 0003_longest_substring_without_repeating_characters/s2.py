@@ -4,8 +4,7 @@ class Solution:
         :type s: str
         :rtype: int
         """
-        max_number = 0
-        number = 0
+        number, max_number = 0, 0
         test = ''
         for i in s:
             if i not in test:
