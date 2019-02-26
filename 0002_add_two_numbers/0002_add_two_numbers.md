@@ -22,9 +22,11 @@
 
 方法：初等数学
 
-### 思路
+### 3.1 思路
 
 我们使用变量来跟踪进位，并从包含最低有效位的表头开始模拟逐位相加的过程。
+
+图示：
 
 ![图1](./pic/2_add_two_numbers.png)
 
@@ -32,7 +34,7 @@
 
 ![图2](.\pic\2_add_two_numbers.gif)
 
-### 算法
+### 3.2 算法
 
 就像你在纸上计算两个数字的和那样，我们首先从最低有效位也就是列表 l1 和 l2 的表头开始相加。由于每位数字都应当处于 0 - 9 的范围内，我们计算两个数字的和时可能会出现“溢出”。例如，5 + 7 = 12。在这种情况下，我们会将当前位的数值设置为 2，并将进位 carry = 1 带入下一次迭代。进位 carry 必定是 0 或 1，这是因为两个数字相加（考虑到进位）可能出现的最大和为 9 + 9 + 1 = 19。
 
@@ -67,7 +69,7 @@
 
 ## 4、代码示例
 
-### python3
+### 4.1 Python3
 
 ```python
 # Definition for singly-linked list.
@@ -126,7 +128,7 @@ class Solution(object):
 
 
 
-### 官网提供的参考解答Java
+### 4.2 官网提供的参考解答Java
 
 ```java
 public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -150,7 +152,7 @@ public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 }
 ```
 
-### 五分钟学算法提供的Java代码
+### 4.3 五分钟学算法提供的Java代码
 
 ```java
 class Solution{
