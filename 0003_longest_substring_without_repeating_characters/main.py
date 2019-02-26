@@ -12,4 +12,3 @@ if __name__ == '__main__':
 
     result3 = s3.Solution().lengthOfLongestSubstring(string1)
     print(result3)
-
