@@ -18,13 +18,13 @@
 
 ## 3、思路解答
 
-### 方法1：暴力法
+### 3.1 方法1：暴力法
 
 
 遍历每个元素 x，并查找是否存在一个值与 target - x 相等的目标元素。
 
 
-  #### 复杂度分析
+  #### 3.1.1 复杂度分析
 
 - 时间复杂度：O(n^2)
 
@@ -32,7 +32,7 @@
 
 - 空间复杂度：O(1) 。   
 
-### 方法2：两遍哈希表
+### 3.2 方法2：两遍哈希表
 
 
 为了对运行时间复杂度进行优化，我们需要一种更有效的方法来检查数组中是否存在目标元素。如果存在，我们需要找出它的索引。保持数组中的每个元素与其索引相互对应的最好方法是什么？哈希表。
@@ -46,28 +46,28 @@
 可以将字典的 key 和 value 设置为数组的索引和对应值，也可以反过来设置为对应值和索引。但是，由于通过字典的 key 来取 value 值更为方便，所以应该将字典的 key 设置为数组的对应值和索引。
 因此思路是，两遍生成字典，一遍生成 (target - nums[i]) 和索引，另一遍生成 num[i] 和 索引，然后在生成第二遍的时候去找第一遍的目标值。第一遍生成哪个个都可以。
 
-#### 复杂度分析
+#### 3.2.1 复杂度分析
 
 - 时间复杂度：O(n) ， 我们把包含有 n 个元素的列表遍历两次。由于哈希表将查找时间缩短到 O(1) ，所以时间复杂度为 O(n) 。
 - 空间复杂度：O(n) ， 所需的额外空间取决于哈希表中存储的元素数量，该表中存储了 nn 个元素。 
 
 
-### 方法3：一遍哈希表
+### 3.3 方法3：一遍哈希表
 
 事实证明，我们可以一次完成。在进行迭代并将元素插入到表中的同时，我们还会回过头来检查表中是否已经存在当前元素所对应的目标元素。如果它存在，那我们已经找到了对应解，并立即将其返回。
 
 在 python 中同样可以一次生成字典的时候就进行检查是否已经找到了对应元素。
 
-#### 复杂度分析
+#### 3.3.1 复杂度分析
 
 - 时间复杂度：O(n) ， 我们只遍历了包含有 n 个元素的列表一次。在表中进行的每次查找只花费 O(1) 的时间。
 - 空间复杂度：O(n) ， 所需的额外空间取决于哈希表中存储的元素数量，该表最多需要存储 n 个元素。
 
 ## 4、代码示例
 
-### 方法1
+### 4.1 方法1
 
-#### Python3
+#### 4.1.1 Python3
 
 ```python
 class Solution:
@@ -89,7 +89,7 @@ class Solution:
             print("No two sum solution")
 ```
 
-#### Java
+#### 4.1.2 Java
 
 ```java
 public int[] twoSum(int[] nums, int target) {
@@ -104,11 +104,11 @@ public int[] twoSum(int[] nums, int target) {
 }
 ```
 
-### 方法2
+### 4.2 方法2
 
-#### Python3
+#### 4.2.1 Python3
 
-##### 第一遍的时候将字典的 key 和 value 设置为数组的对应值和索引。
+##### 第一版把字典的 key 和 value 设置为数组的对应值和索引。
 ```python
 class Solution():
     def twoSum(self, nums, target):
@@ -124,7 +124,7 @@ class Solution():
         return []
 ```
 
-##### 第二遍时候将字典的 key 和 value 设置为数组的对应值和索引。
+##### 第二版把字典的 key 和 value 设置为数组的对应值和索引。
 ```python
 class Solution():
     def twoSum(self, nums, target):
@@ -140,7 +140,7 @@ class Solution():
         return []
 ```
 
-#### Java
+#### 4.2.2 Java
 
 ```java
 public int[] twoSum(int[] nums, int target) {
@@ -158,9 +158,9 @@ public int[] twoSum(int[] nums, int target) {
 }
 ```
 
-### 方法3
+### 4.3 方法3
 
-#### Python3
+#### 4.3.1 Python3
 
 ```python
 class Solution():
@@ -173,7 +173,7 @@ class Solution():
                 dic[num] = i
         print("No two sum solution")
 ```
-
+将上面的方法反过来。
 ```python
 class Solution():
     def twoSum(self, nums, target):
@@ -215,7 +215,7 @@ class Solution(object):
         return sorted([a[i][0], a[j][0]])
 ```
 
-#### Java
+#### 4.3.2 Java
 
 ```java
 public int[] twoSum(int[] nums, int target) {
